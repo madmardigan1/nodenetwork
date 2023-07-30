@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,27 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'moviemaker';
+  public nodenumber: string = '';
+
+  public isPopupOpen = false;
+
+  closePopup() {
+    this.isPopupOpen = false;
+  }
+
+  openPopup() {
+    this.isPopupOpen = true;
+  
+  }
+  onNodeClicked(nodeId: any) {
+    this.scroll(nodeId);
+  }
+
+  scroll(nodeId: number) {
+    let element = document.getElementById(`node${nodeId}`);
+    if (element) {
+      element.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+  }
 }
+
