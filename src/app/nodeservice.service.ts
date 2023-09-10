@@ -6,7 +6,7 @@ import { Node } from './node';
 })
 export class NodeService {
   private nodes: Node[] = [
-    { id: 1, label: 'Node 1', quality: 100, time: 5, size: 10 },
+    { id: 1, label: this.trimText('Hey whats the big deal with donald trump, click inside if you want to see some juicy gouge on whats really going on',80), quality: 100, time: 5, size: 10 },
     { id: 2, label: 'Node 2', quality: 55, time: 1 ,size: 20 },
     { id: 3, label: 'Node 3', quality: 12, time: 4,size: 15 },
     { id: 4, label: 'Node 4', quality: -75, time: 9,size: 30  },
@@ -43,5 +43,13 @@ export class NodeService {
   getEdges(): Observable<any> {
     return of(this.edges);
   }
+  
+  trimText(text: string, maxLength: number) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength - 3) + '...';
+    }
+    return text;
+}
+
 }
 

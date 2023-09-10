@@ -75,10 +75,26 @@ export class PopupComponent implements AfterViewInit, OnInit {
         hierarchical: {direction: "UD", sortMethod: "directed",}
       },
       nodes: {
-        physics: true,
-        shape: "dot",
-        shadow: true,
-      },
+        shape: 'box',
+        margin: { 
+            top: 10, 
+            right: 10, 
+            bottom: 10, 
+            left: 10 
+        },
+        borderWidth: 2,
+        borderRadius: 10,
+        widthConstraint: {
+            maximum: 150
+        },
+        heightConstraint: {
+            maximum: 50
+        },
+        font: {
+            size: 14,
+            face: 'Arial'
+        }
+    },
       manipulation: {
         enabled: false,
       },
